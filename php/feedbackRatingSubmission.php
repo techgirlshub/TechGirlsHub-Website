@@ -23,15 +23,15 @@ if (isset($_POST['feedbackRatingSubmission'])) {
         $mail->isSMTP();
         $mail->SMTPAuth   = true;
         $mail->Host       = 'mail.techgirlshub.co.za';
-        $mail->Username   = 'testaccount1@techgirlshub.co.za';
+        $mail->Username   = 'admin@techgirlshub.co.za';
         $mail->Password   = 'TestAccount1';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         // Recipients
         // Email to admin
-        $mail->setFrom('testaccount1@techgirlshub.co.za', 'TechGirlsHub - Test Account 1');
-        $mail->addAddress('testaccount1@techgirlshub.co.za'); // Add admin email
+        $mail->setFrom('admin@techgirlshub.co.za', 'TechGirlsHub - Test Account 1');
+        $mail->addAddress('admin@techgirlshub.co.za'); // Add admin email
 
         // Set the email subject
         $mail->Subject = 'New Feedback Form Submission';
