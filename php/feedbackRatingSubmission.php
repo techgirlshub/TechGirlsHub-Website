@@ -24,7 +24,7 @@ if (isset($_POST['feedbackRatingSubmission'])) {
         $mail->SMTPAuth   = true;
         $mail->Host       = 'mail.techgirlshub.co.za';
         $mail->Username   = 'admin@techgirlshub.co.za';
-        $mail->Password   = 'TestAccount1';
+        $mail->Password   = 'Root96void23.';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
