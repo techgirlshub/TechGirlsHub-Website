@@ -1,0 +1,460 @@
+body {
+    font-family: 'Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Navbar Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 20px; 
+    background: linear-gradient(to right, #08979d, #ccabd8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    max-width: 110px; 
+    height: auto;
+    display: block;
+}
+
+nav {
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    z-index: 10;
+}
+
+.hamburger span {
+    height: 4px;
+    width: 30px;
+    background: #08979d; /* Change this color as needed */
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+
+#nav-links {
+    display: flex;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.nav-container {
+    display: flex; 
+    align-items: center; 
+    margin-left: 20px; 
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 10px; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 10px; 
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect: Change text color, background, and slight scaling */
+nav ul li a:hover {
+    color: #f4f4f9;
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 5px; 
+    transform: scale(1.05); 
+}
+
+/* Optional: Underline animation effect */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f4f4f9;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); 
+    color: white;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    z-index: 1; 
+}
+
+.hero-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    background-color: #08979d; 
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #076a6d; 
+}
+
+/* Services Section */
+.services-section {
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px; 
+    color: #08979d; 
+}
+
+.services-section p {
+    margin-bottom: 40px; 
+    font-size: 1.2rem; /* Optional: Adjust font size for the paragraph */
+    color: #333; /* Change text color if needed */
+}
+
+.services-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center align items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between cards */
+}
+
+.service-card {
+    background: linear-gradient(to right, #6b6a91, #92d6e7);
+    border: 1px solid #666;
+    border-radius: 15px 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 240px; /* Fixed width for cards */
+    text-align: center;
+    padding: 20px;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px); 
+    transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+.service-card img {
+    width: 25%; /* Adjusted width for responsiveness */
+    max-width: 120px; /* Optional: limit max width for images */
+    border-radius: 10px;
+    margin-bottom: 15px; /* Space below image */
+}
+
+.service-card h3 {
+    margin: 15px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.service-card p {
+    color: white;
+    font-size: 1rem;
+}
+
+/* Animation (optional) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to service cards (optional) */
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.6s forwards; /* Play animation on visibility */
+}
+
+/* Footer Section */
+.footer {
+    background: linear-gradient(to right, #08979d, #ccabd8);
+    padding: 20px; /* Reduced padding */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Reduced margin */
+    gap: 20px; /* Reduced gap */
+}
+
+.logo-container {
+    flex: 1;
+    min-width: 180px; /* Reduced min-width */
+}
+
+.logo {
+    font-size: 1.5rem; /* Reduced font size */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 0.9rem; /* Reduced font size */
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    list-style-type: none;
+    display: flex;
+    gap: 10px; /* Reduced gap */
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-flex;
+}
+
+.social-icons li a {
+    color: white;
+    font-size: 20px; /* Reduced icon size */
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.social-icons li a:hover {
+    color: #1c1b4d; 
+    transform: scale(1.1); /* Optional: slightly enlarge on hover */
+}
+
+.footer-columns {
+    display: flex;
+    gap: 30px; /* Reduced gap */
+    flex: 1;
+    min-width: 250px; /* Reduced min-width */
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin: 5px 0;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-bottom {
+    display: flex; 
+    justify-content: space-between; /* Push elements to opposite sides */
+    align-items: center; 
+    padding: 5px 0; /* Reduced padding */
+    border-top: 1px solid #ddd;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.footer-bottom p {
+    margin: 0; 
+}
+
+.footer-bottom-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    gap: 10px; /* Reduced gap */
+}
+
+.footer-bottom-nav li a {
+    text-decoration: none;
+    color: black; 
+}
+
+/* Hover effect */
+.service-card:hover {
+    transform: translateY(-5px); /* Reduced hover effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+}
+
+/* When the scroll event triggers this class, make the card visible */
+.service-card.show {
+    opacity: 1; /* Fully visible */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #nav-links {
+        display: none; /* Hide links initially for mobile */
+    }
+
+    nav.active #nav-links {
+        display: flex; /* Show links when active */
+    }
+
+    header {
+        padding: 8px 16px; /* Reduce padding for header */
+    }
+
+    .logo img {
+        max-width: 100px; /* Adjust logo size for mobile */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Position absolute to control dropdown behavior */
+        top: 60px; /* Position below the header */
+        left: 0;
+        right: 0;
+        background: #08979d; /* Background for dropdown */
+        z-index: 999; /* Ensure dropdown is above other elements */
+    }
+
+    nav ul {
+        flex-direction: column; /* Change to column layout */
+        gap: 10px; /* Reduced horizontal gap */
+    }
+
+    nav ul li {
+        margin: 0; /* Remove margins for vertical stacking */
+    }
+
+    .service-container {
+        flex-direction: column; /* Stack service cards vertically */
+    }
+
+    .services-container {
+        gap: 10px; /* Space between stacked cards */
+        padding: 0 10px; /* Reduced side padding */
+    }
+
+    .hero-overlay h1 {
+        font-size: 2rem; /* Adjust font size for mobile */
+    }
+
+    .hero-overlay {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .footer-columns {
+        flex-direction: column; /* Stack footer columns vertically */
+        align-items: center; /* Center align */
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* Stack footer content */
+        align-items: center; /* Center align */
+        text-align: center; /* Center text */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-overlay h1 {
+        font-size: 1.5rem; /* Adjust font size for smaller devices */
+    }
+
+    .cta-btn {
+        padding: 8px 15px; /* Adjust button padding for smaller devices */
+        font-size: 0.8rem; /* Adjust font size */
+    }
+
+    .footer {
+        padding: 10px; /* Further reduce padding for footer */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Stack footer items vertically */
+        align-items: center; /* Center align */
+        gap: 10px; /* Reduced gap */
+    }
+
+    .footer-columns {
+        flex-direction: column; /* Stack footer columns vertically */
+        align-items: center; /* Center align */
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* Stack footer content */
+        align-items: center; /* Center align */
+        text-align: center; /* Center text */
+        gap: 5px; /* Reduced gap */
+    }
+
+    .service-card {
+        width: 80%; /* Make service cards take up more width on mobile */
+        padding: 15px; /* Reduced padding for service cards */
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .service-card p {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+    }
+}
