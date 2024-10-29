@@ -24,7 +24,7 @@ try {
     $mail->Host = 'mail.techgirlshub.co.za';    // Specify your SMTP server here (e.g., smtp.gmail.com for Gmail)
     $mail->SMTPAuth = true;
     $mail->Username = 'admin@techgirlshub.co.za'; // Your SMTP username (email address)
-    $mail->Password = 'admin';         // Your SMTP password
+    $mail->Password = 'Root96void23';         // Your SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;                        // Usually 587 for TLS
 
