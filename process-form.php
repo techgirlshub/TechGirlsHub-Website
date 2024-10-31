@@ -7,14 +7,12 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-
 $name =htmlspecialchars($_POST['name']);
 $email = htmlspecialchars($_POST['email']);
 $phone = htmlspecialchars($_POST['phone']);
 $budget =htmlspecialchars($_POST['budget']);
 $service = htmlspecialchars($_POST['service']);
 $details = htmlspecialchars($_POST['details']);
-
 
 $mail = new PHPMailer(true);
 
@@ -35,8 +33,6 @@ try {
     // Email content
     $mail->isHTML(true);
     $mail->Subject = 'Service Request Confirmation - TechGirlsHub';
-
-    // HTML body
     $mail->Body = '
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; color: #333;">
             <div style="background-color: :#007bff; padding: 20px; text-align: center; border-radius: 10px;">
@@ -61,23 +57,13 @@ try {
         </div>
     ';
 
-    // Send the email
+     // Send the email
     $mail->send();
 
-    // Display SweetAlert2 success message and redirect
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-    echo "<script>
-            Swal.fire({
-                title: 'Your request has been submitted successfully!',
-                text: 'Expect feedback soon!',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'requestForm.html'; // Redirect to form page or another page
-                }
-            });
-          </script>";
+    // Redirect to the form page with a success parameter
+    header("Location: requestForm.html?success=true");
+    exit();
+
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
