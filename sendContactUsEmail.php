@@ -32,14 +32,14 @@ if(isset($_POST['submitContact']))
                 $mail->SMTPAuth   = true;                                         //Enable SMTP authentication
 
                 $mail->Host       = 'mail.techgirlshub.co.za';                    //Set the SMTP server to send through
-                $mail->Username   = 'testaccount3@techgirlshub.co.za';            //SMTP username        
-                $mail->Password   = 'TestAccount3';                              //SMTP password                            
+                $mail->Username   = 'admin@techgirlshub.co.za';            //SMTP username        
+                $mail->Password   = 'Root96void23.';                              //SMTP password                            
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;             //Enable implicit TLS encryption
                 $mail->Port       = 587;                                        //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('testaccount3@techgirlshub.co.za', 'TechGirlsHub - Test Account 3');
-                $mail->addAddress('testaccount3@techgirlshub.co.za');
+                $mail->setFrom('admin@techgirlshub.co.za', 'TechGirlsHub');
+                $mail->addAddress('admin@techgirlshub.co.za');
             
                 //$mail->addAddress($email, $yourname);     //Add a recipient
 
@@ -127,7 +127,7 @@ if(isset($_POST['submitContact']))
             $mail->addAddress($email, $name); // Add the user's email
             
             // Set the subject for the user email
-            $mail->Subject = 'Thank You for Your Feedback';
+            $mail->Subject = 'Thank You for Your Enquiry';
             $mail->Body = '
             <!DOCTYPE html>
             <html lang="en">
@@ -177,7 +177,7 @@ if(isset($_POST['submitContact']))
             <body>
                 <div class="container">
                     <div class="header">
-                        <h2>Thank You for your Contact Us Request</h2>
+                        <h2>Thank You for contacting TechGirlsHub</h2>
                     </div>
                     <div class="content">
                         <p>Hello ' . $yourname . ',</p>
@@ -200,13 +200,13 @@ if(isset($_POST['submitContact']))
                 header("Location: {$_SERVER['HTTP_REFERER']}");
                 exit(0);
             } else {
-                $_SESSION['status'] = "Feedback Response could not be sent to the user. Mailer Error: {$mail->ErrorInfo}";
+                $_SESSION['status'] = "Contact Us Enquiry could not be sent to the user. Mailer Error: {$mail->ErrorInfo}";
             }
         } else {
-            $_SESSION['status'] = "Feedback could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $_SESSION['status'] = "Contact Us Enquiry could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } catch (Exception $e) {
-        echo "Feedback could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo "Contact Us Enquiry could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 } else {
     // After processing, redirect to the main page

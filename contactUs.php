@@ -215,7 +215,7 @@
     <body>
       <header>
         <div class="logo">
-         <a href ="/"><img src="images/TGHlogo-noback.png" alt="TechGirlsHub Logo" /></a>
+         <a href ="/"><img src="images/TechGirlsHub Logo.png" alt="TechGirlsHub Logo" /></a>
         </div>
         <nav>
                 <ul>
@@ -269,7 +269,7 @@
      <!-- Contact Information Section -->
      <section style="text-align: center; padding: 20px; background-color: #333; color: #fff;">
         <h3>Contact Information</h3>
-        <p>Email: testaccount3@techgirlshub.co.za</p>
+        <p>Email: </p>
         <p>Phone: 082 338 9840</p>
     </section>
 

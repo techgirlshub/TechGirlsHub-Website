@@ -7,14 +7,12 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-
 $name =htmlspecialchars($_POST['name']);
 $email = htmlspecialchars($_POST['email']);
 $phone = htmlspecialchars($_POST['phone']);
 $budget =htmlspecialchars($_POST['budget']);
 $service = htmlspecialchars($_POST['service']);
 $details = htmlspecialchars($_POST['details']);
-
 
 $mail = new PHPMailer(true);
 
@@ -35,11 +33,9 @@ try {
     // Email content
     $mail->isHTML(true);
     $mail->Subject = 'Service Request Confirmation - TechGirlsHub';
-
-    // HTML body
     $mail->Body = '
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; color: #333;">
-            <div style="background-color: #bd37c9fa; padding: 20px; text-align: center; border-radius: 10px;">
+            <div style="background-color: :#007bff; padding: 20px; text-align: center; border-radius: 10px;">
                 <h2 style="color: #fcfcfc;">Thank You for Your Request!</h2>
             </div>
             <div style="padding: 20px; background-color: #ffffff; border: 1px solid #e4e4e4; border-radius: 10px; margin-top: 10px;">
@@ -56,17 +52,16 @@ try {
             </div>
             <div style="text-align: center; font-size: 12px; color: #777; margin-top: 20px;">
                 <p>&copy; 2024 TechGirlsHub. All rights reserved.</p>
-                <p><a href="http://techgirlshub.co.za" style="color: #4CAF50; text-decoration: none;">Visit our website</a></p>
+                <p><a href="http://techgirlshub.co.za" style="color: #007bff; text-decoration: none;">Visit our website</a></p>
             </div>
         </div>
     ';
 
-    // Send the email
+     // Send the email
     $mail->send();
-    echo 'Confirmation email has been sent.';
 
-    // Redirect to a thank you page or show success message
-    header("Location: thank-you.html");
+    // Redirect to the form page with a success parameter
+    header("Location: requestForm.html?success=true");
     exit();
 
 } catch (Exception $e) {
